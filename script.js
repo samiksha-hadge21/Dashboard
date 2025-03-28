@@ -1,6 +1,5 @@
 const apiKey = '67e6f24ad980b3.01408533'; 
 
-// Fetch the search history from localStorage if available
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
 document.getElementById('fetchData').addEventListener('click', fetchStockData);
@@ -9,10 +8,10 @@ function fetchStockData() {
     const query = document.getElementById('query').value.toLowerCase();
     let symbol;
 
-    // Logic to determine the stock symbol from the query
+    
     if (query.includes('amazon') || query.includes('amzn')) {
         symbol = 'AMZN';
-    } else if (query.includes('apple') || query.includes('aapl')) {
+    } else if (query.includes('apple') || query.includes('aapl')) 
         symbol = 'AAPL';
     } else if (query.includes('tesla') || query.includes('tsla')) {
         symbol = 'TSLA';
@@ -25,19 +24,18 @@ function fetchStockData() {
         return;
     }
 
-    // Store the query in search history
     if (!searchHistory.includes(query)) {
         searchHistory.push(query);
         localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
     }
 
-    // Fetch stock data
+  
     const url = `https://eodhistoricaldata.com/api/eod/${symbol}.US?api_token=${apiKey}&period=d`;
 
     fetch(url)
         .then(response => response.text())  // Use .text() to get CSV format
         .then(csvData => {
-            // Parse CSV data using PapaParse
+           
             Papa.parse(csvData, {
                 complete: function(results) {
                     const data = results.data;
@@ -58,11 +56,11 @@ function fetchStockData() {
         })
         .catch(error => console.error('Error fetching data:', error));
 
-    // Display the updated history
+   
     displayHistory();
 }
 
-// Display chart using Chart.js
+
 function displayChart(dates, closingPrices) {
     const ctx = document.getElementById('stock').getContext('2d');
 
@@ -92,17 +90,17 @@ function displayChart(dates, closingPrices) {
     });
 }
 
-// Display history list
+
 function displayHistory() {
     const historyList = document.getElementById('historyList');
-    historyList.innerHTML = '';  // Clear the list
+    historyList.innerHTML = '';  
 
     searchHistory.forEach(query => {
         const listItem = document.createElement('li');
         listItem.textContent = query;
         listItem.addEventListener('click', () => {
             document.getElementById('query').value = query;
-            fetchStockData();  // Fetch data for the clicked history item
+            fetchStockData();  
         });
         historyList.appendChild(listItem);
     });
