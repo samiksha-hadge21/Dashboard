@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Price Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="main">
+        <input type="text" id="query" placeholder="Enter stock name or symbol (e.g., Amazon)">
+        <button id="fetchData">Fetch Data</button>
+        <canvas id="stock"></canvas>
+
+        <div id="history">
+            <h3>Search History</h3>
+            <ul id="historyList"></ul> 
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+

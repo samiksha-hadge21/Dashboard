@@ -1,0 +1,72 @@
+body {
+    background-image: url(https://img.freepik.com/free-vector/stock-market-exchange-background-with-chart-diagram-investment_1017-44920.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0; 
+}
+
+#main {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 600px;
+    backdrop-filter: blur(30px);
+    padding: 20px;
+    border-radius: 10px;
+   
+    
+}
+
+#fetchData {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+}
+
+#fetchData:hover {
+    background-color: #25eb4d;
+}
+
+input {
+    padding: 10px;
+    width: 80%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+#history {
+    margin-top: 20px;
+    width: 80%;
+    max-width: 600px;
+}
+
+#history ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#history li {
+    padding: 5px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#history li:hover {
+    background-color: #3498db;
+    color: white;
+}
