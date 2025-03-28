@@ -33,7 +33,7 @@ function fetchStockData() {
     const url = `https://eodhistoricaldata.com/api/eod/${symbol}.US?api_token=${apiKey}&period=d`;
 
     fetch(url)
-        .then(response => response.text())  // Use .text() to get CSV format
+        .then(response => response.text())  
         .then(csvData => {
            
             Papa.parse(csvData, {
@@ -106,5 +106,5 @@ function displayHistory() {
     });
 }
 
-// Initially display the history if any
+
 displayHistory();
